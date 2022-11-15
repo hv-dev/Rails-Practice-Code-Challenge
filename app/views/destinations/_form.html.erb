@@ -1,0 +1,16 @@
+<%= form_with(model: destination) do |f| %>
+
+    <%= render "shared/errors", object: destination %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+
+    <% if destination.new_record? %>
+        <%= f.submit "Create Destination" %>
+    <% else %>
+        <%= f.submit "Update Destination" %>
+    <% end %>
+<% end %>
