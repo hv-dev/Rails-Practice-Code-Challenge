@@ -6,6 +6,6 @@ class Blogger < ApplicationRecord
     validates :bio, presence: :true, length: { minimum: 30 }
     validates :age, presence: :true, numericality: { greater_then: 0 }
 
-    scope :list, => { order(:name) }
+    scope :list, -> { order(:name) }
 
 end

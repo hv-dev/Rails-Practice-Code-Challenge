@@ -1,0 +1,10 @@
+<ul class='users'>
+<% @bloggers.each do |blogger| %>
+  <li>
+    <%= link_to blogger.name, blogger %>
+    created
+    <%= time_ago_in_words(blogger.created_at) %> ago
+
+  </li>
+<% end %>    
+</ul>

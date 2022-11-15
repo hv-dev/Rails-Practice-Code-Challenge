@@ -3,18 +3,15 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-30.times do 
+#   movies = Movie.create([{ name: ‘Star Wars’ }, { name: ‘Lord of the Rings’ }])
+#   Character.create(name: ‘Luke’, movie: movies.first)
+# require “faker”
+30.times do
   Destination.create({
-    name: Faker::GameOfThrones.city,
-    country: Faker::Address.country
+    name: Faker::TvShows::GameOfThrones.city,
+    country: Faker::Address.country,
   })
 end
-
-
 10.times do
   blogger = Blogger.create({
     name: Faker::Name.name,
@@ -22,10 +19,10 @@ end
     age: (13..100).to_a.sample
   })
 
-  (2..6).to_a.sample.times do 
+  (2..6).to_a.sample.times do
     Post.create({
-      title: Faker::Hipster.sentence(3),
-      content: Faker::Hipster.paragraphs(4),
+      title: Faker::Hipster.sentence(word_count: (1..5).to_a.sample),
+      content: Faker::Hipster.paragraphs(number: (1..4).to_a.sample),
       likes: 0,
       blogger: blogger,
       destination: Destination.all.sample

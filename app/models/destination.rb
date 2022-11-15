@@ -5,5 +5,5 @@ class Destination < ApplicationRecord
     validates :name, presence: :true
     validates :country, presence: :true
 
-    scope :list, => { order(:name) }
+    scope :list, -> { order(:name) }
 end

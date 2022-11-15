@@ -1,0 +1,16 @@
+<section class="user">
+  <h1><%= @blogger.name %>, <%= @blogger.created_at.strftime("Blogger since %B %Y") %></h1>
+
+  <h2>Total Likes: <%= @total_likes%></h2>
+
+  <h3>Featured Post: <%= link_to @featured.title, @featured%></h3>
+
+
+  <div class="actions">
+    <% if current_blogger?(@blogger)%>
+      <%= link_to "Edit Account", edit_blogger_path(@blogger), class: "button  edit" %>
+      <%= link_to 'Delete Account', @blogger, class: "button delete",
+                data: { turbo_method: :delete, turbo_confirm: "Permanently delete your account!?" } %>
+    <% end %>
+  </div>
+</section>

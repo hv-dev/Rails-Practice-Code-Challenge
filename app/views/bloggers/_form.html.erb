@@ -1,0 +1,19 @@
+<%= form_with(model: blogger) do |f| %>
+
+    <%= render "shared/errors", object: blogger %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+
+    <%= f.label :bio %>
+    <%= f.text_area :username, rows: 10 %>
+
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+
+    <% if blogger.new_record? %>
+        <%= f.submit "Create Account" %>
+    <% else %>
+        <%= f.submit "Update Account" %>
+    <% end %>
+<% end %>
