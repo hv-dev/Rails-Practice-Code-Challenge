@@ -2,7 +2,7 @@ class DestinationsController < ApplicationController
 
 
     def index
-        @destinations = Destionation.send(destinations_filter)
+        @destinations = Destination.send(destinations_filter)
     end
 
     def show
@@ -52,9 +52,8 @@ class DestinationsController < ApplicationController
     def destinations_filter
         if params[:filter].in? %w(all)
             params[:filter]
-       else
+        else
             :list
        end
-        end
     end
 end

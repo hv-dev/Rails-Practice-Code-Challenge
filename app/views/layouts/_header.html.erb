@@ -2,39 +2,26 @@
     <nav>
         <ul class="left">
             <li>
-                <%= nav_link_to "Released", movies_path %>
+                <%= link_to "Bloggers Index", bloggers_path %>
             </li>
             <li>
-                <%= nav_link_to 'Upcoming', filtered_movies_path(:upcoming) %>
+                <%= link_to "Destinations Index", destinations_path %>
             </li>
             <li>
-                <%= nav_link_to 'Recent', filtered_movies_path(:recent) %>
+                <%= link_to "Posts Index", posts_path %>
             </li>
             <li>
-                <%= nav_link_to "Hits", filtered_movies_path(:hits) %>
-            </li>
-            <li>
-                <%= nav_link_to "Flops", filtered_movies_path(:flops) %>
-            <li>
-                <%= link_to "Genres", genres_path %>
-            </li>
-            <li>
-                <%= link_to "Feeling Lucky?", "https://youtu.be/dQw4w9WgXcQ" %>
+                <%= link_to ":D", "https://youtu.be/dQw4w9WgXcQ" %>
             </li>
         </ul>
 
         <ul class="right">
-        <% if current_user %>
-            <% if current_user_admin? %>
-                <li>
-                    <%= link_to "Admin Panel", admin_path %>
-                </li>
-            <% end %>
+        <% if current_blogger %>
             <li>
-                <%= link_to current_user.name, current_user %>
+                <%= link_to current_blogger.name, current_blogger %>
             </li>
             <li>
-                <%= link_to "Account Settings", edit_user_path(current_user) %>
+                <%= link_to "Account Settings", edit_blogger_path(current_blogger) %>
             </li>
             <li>
                 <%= button_to "Sign Out", session_path, method: :delete %>

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        @post.blogger_id = 
+        @post.blogger_id = session[:user_id]
 
     end
 
