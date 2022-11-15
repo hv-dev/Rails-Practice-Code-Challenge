@@ -1,1 +1,42 @@
 <h1>Destination Show</h1>
+
+<section class="movie-details">
+  <div class="details">
+    <h1><%= @destination.name %></h1>
+    <h2>
+      <%= @destination.country %>
+    </h2>
+        <table>
+      <tr>
+        <th>Featured Post:</th>
+        <td><%= link_to @featured_post.title, @featured_post %></td>
+      </tr>
+      <tr>
+        <th>Average Age of all bloggers who posted about this destination:</th>
+        <td>replace this with age scope</td>
+      </tr>
+    </table>
+    <p>
+        Recent Posts:
+        <ul>
+            <% @recent.each do |post| %>
+                <li>
+                    <%= link_to post.title, post %>
+                </li>
+            <% end %>
+        </ul>
+    </p>
+  </div>
+
+<% if current_blogger %>
+  <section class="admin">
+    <%= link_to "Edit", edit_destination_path(@destination), class: "button" %>
+
+    <%= link_to "Delete", destination_path(@destination), class: "button",
+        data: { 
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure you want to delete this destination?"
+        } 
+    %>
+  </section>
+<% end %>

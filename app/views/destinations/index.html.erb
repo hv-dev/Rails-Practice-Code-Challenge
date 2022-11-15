@@ -1,1 +1,20 @@
 <h1>Destination Index</h1>
+
+<% @destinations.each do |destination| %>
+  <section class="movie">
+    <div class="summary">
+      <h2>
+        <%= link_to destination.name, destination %>
+      </h2>
+      <h3>
+        <%= destination.country %>
+      </h3>
+    </div>
+  </section>
+<% end %>
+
+<% if current_blogger %>
+  <section class="admin">
+    <%= link_to "Add New Destination", new_destination_path, class: "button" %>
+  </section>
+<% end %>
